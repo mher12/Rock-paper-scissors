@@ -46,6 +46,7 @@ let playerSelectPaper = 'paper';
 let playerSelectScissor = 'scissors';
 let computerSelection = getComputerChoice();
 
+let playerSelection = prompt('Enter a selection of \'Rock\', \'Paper\', or \'Scissors\':', '').toLocaleLowerCase();
 
 function playRound (playerSelection, computerSelection){
     if (playerSelection == computerSelection) {
@@ -65,4 +66,6 @@ function playRound (playerSelection, computerSelection){
 };
 };
 
-console.log(playRound('scissors', 'paper'));
+console.log(playRound(playerSelection, computerSelection));
+
+
