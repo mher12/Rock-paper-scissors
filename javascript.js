@@ -24,6 +24,7 @@ function getComputerChoice (){
         if (randomizeChoice === 3) {
             return computerChoseScissors;
         }
+        
     };
 
 
@@ -41,31 +42,82 @@ function getComputerChoice (){
 //once condition has been met, return results
 
 
-let playerSelectRock = 'rock';
-let playerSelectPaper = 'paper';
-let playerSelectScissor = 'scissors';
+// let playerSelectRock = 'rock';
+// let playerSelectPaper = 'paper';
+// let playerSelectScissor = 'scissors';
 let computerSelection = getComputerChoice();
 
-let playerSelection = prompt('Enter a selection of \'Rock\', \'Paper\', or \'Scissors\':', '').toLocaleLowerCase();
+// let playerSelection = prompt('Enter a selection of \'Rock\', \'Paper\', or \'Scissors\':', '').toLocaleLowerCase();
+
+//commented out code below to avoid it interferring with new code; function playRound() will be nestled within the new function game()
+
 
 function playRound (playerSelection, computerSelection){
     if (playerSelection == computerSelection) {
+        playerWon = 0;
+        computerWon = 0;
         return 'Tie game!';
     } else if (playerSelection == 'rock' && computerSelection == 'scissors'){
-        return 'You won! Rock beats scissors!'
+        playerWon = 1;
+        return 'You won! Rock beats scissors!';
     } else if (playerSelection == 'rock' && computerSelection == 'paper'){
-        return 'You lost! Paper beats rocks!'
+        computerWon = 1;
+        return 'You lost! Paper beats rocks!';
     }else if (playerSelection == 'paper' && computerSelection == 'scissors'){
-        return 'You lost! Scissors beats paper!'
+        computerWon = 1;
+        return 'You lost! Scissors beats paper!';
     }else if (playerSelection == 'paper' && computerSelection == 'rock'){
-        return 'You won! Paper beats rock!' 
+        playerWon = 1;
+        return 'You won! Paper beats rock!' ;
     }else if (playerSelection == 'scissors' && computerSelection == 'paper'){
-        return 'You won! Scissors beats paper!'
+        playerWon = 1;
+        return 'You won! Scissors beats paper!';
     }else if (playerSelection == 'scissors' && computerSelection == 'rock'){
-        return 'You lost! Rock beats scissors!'
-};
+        computerWon = 1;
+        return 'You lost! Rock beats scissors!';
+    }else { return 'You entered invalid choice!'};
 };
 
-console.log(playRound(playerSelection, computerSelection));
+// NEW function called game(). 
+// Use the previous function inside of this one to play a 5 round game that keeps score and reports a winner or loser at the end.
+// Use a for loop OR call your playRound function 5 times in a row. 
+// At this point you should be using console.log() to display the results of each round and the winner at the end.
+// Use prompt() to get input from the user.
+
+let round = 0;
+let playerWon= 0;
+let computerWon= 0;
+
+function game(){
+    round++
+    playRound();
+};
+
+function getResults(){
+    if (playerWon == 1){
+        playerWon =+ 1
+        console.log('Player score:' + playerWon +' '+ 'Computer Score: '+ computerWon)
+    } else if (computerWon ==1){
+        computerWon =+ 1
+        console.log('Player score:' + playerWon +' '+ 'Computer Score:' + computerWon)
+    } else if (playerWon ==0 || computerWon == 0){
+        playerWon + 0
+        computerWon + 0    
+        console.log('Player score:' + playerWon++ +' '+ 'Computer Score:' + computerWon++);
+    } else {
+        console.log('Player score:' + playerWon +' '+ 'Computer Score:' + computerWon)
+    }
+}
+
+
+
+console.log(playRound('paper', computerSelection), getResults());
+console.log(playRound('rock', computerSelection), getResults());
+console.log(playRound('scissors', computerSelection), getResults());
+console.log(playRound('paper', computerSelection), getResults());
+console.log(playRound('water', computerSelection), getResults());
+
+
+
 
 
