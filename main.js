@@ -2,6 +2,15 @@
 let playerPoints = 0;
 let computerPoints = 0;
 
+//button container
+let btnContainer = document.getElementById('btn-container');
+
+//display result container
+let resultContainer = document.getElementById('result-container');
+
+//game quit/play again container
+let gameBtnContainer = document.getElementById('game-btn-container');
+
 //buttons
 let rockBtn = document.getElementById("1");
 let paperBtn = document.getElementById("2");
@@ -12,19 +21,19 @@ scissorsBtn.disabled= false;
 
 //display computer choice
 let computerChoiceDisplay = document.createElement('p');
-document.body.appendChild(computerChoiceDisplay);
+document.resultContainer.appendChild(computerChoiceDisplay);
 
 //display player choice
 let playerChoiceDisplay = document.createElement('p');
-document.body.appendChild(playerChoiceDisplay);
+document.resultContainer.appendChild(playerChoiceDisplay);
 
 //display battle results
 let battleResult = document.createElement('p');
-document.body.appendChild(battleResult);
+document.resultContainer.appendChild(battleResult);
 
 let finalResults = document.createElement('p');
 finalResults.style.fontWeight = 'bold';
-document.body.appendChild(finalResults);
+document.resultContainer.appendChild(finalResults);
 
 //array of choices for computer to select from
 let choices = ['rock', 'paper', 'scissors']
@@ -97,7 +106,7 @@ function checkForwinner(playerPoints, computerPoints){
 //quite game
 let quitGameBtn = document.createElement('button');
 quitGameBtn.textContent = 'Quit Game';
-document.body.appendChild(quitGameBtn);
+document.gameBtnContainer.appendChild(quitGameBtn);
 quitGameBtn.addEventListener('click', () => {
     rockBtn.disabled = true;
     paperBtn.disabled = true;
