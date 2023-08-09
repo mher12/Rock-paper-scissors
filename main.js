@@ -8,8 +8,6 @@ let btnContainer = document.getElementById("btn-container");
 //display result container
 let resultContainer = document.getElementById("result-container");
 
-console.log(resultContainer)
-
 //game quit/play again container
 let gameBtnContainer = document.getElementById("game-btn-container");
 
@@ -27,15 +25,15 @@ resultContainer.appendChild(computerChoiceDisplay);
 
 //display player choice
 let playerChoiceDisplay = document.createElement('p');
-document.resultContainer.appendChild(playerChoiceDisplay);
+resultContainer.appendChild(playerChoiceDisplay);
 
 //display battle results  
 let battleResult = document.createElement('p');
-document.resultContainer.appendChild(battleResult);
+resultContainer.appendChild(battleResult);
 
 let finalResults = document.createElement('p');
 finalResults.style.fontWeight = 'bold';
-document.resultContainer.appendChild(finalResults);
+resultContainer.appendChild(finalResults);
 
 //array of choices for computer to select from
 let choices = ['rock', 'paper', 'scissors']
@@ -108,7 +106,7 @@ function checkForwinner(playerPoints, computerPoints){
 //quit game
 let quitGameBtn = document.createElement('button');
 quitGameBtn.textContent = 'Quit Game';
-document.gameBtnContainer.appendChild(quitGameBtn);
+gameBtnContainer.appendChild(quitGameBtn);
 quitGameBtn.addEventListener('click', () => {
     rockBtn.disabled = true;
     paperBtn.disabled = true;
@@ -117,11 +115,11 @@ quitGameBtn.addEventListener('click', () => {
 
 
 
-//resets game
-let resetBtn = document.createElement('button')
-resetBtn.textContent = 'Play Again'
-document.body.appendChild(resetBtn)
-resetBtn.addEventListener('click', () => {
+//resets to play again
+let playAgainBtn = document.createElement('button')
+playAgainBtn.textContent = 'Play Again'
+gameBtnContainer.appendChild(playAgainBtn)
+playAgainBtn.addEventListener('click', () => {
     document.location.reload()}
 );
 
