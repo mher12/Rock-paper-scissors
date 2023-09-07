@@ -55,7 +55,8 @@ btns.forEach((button) => {
     });
 });
 
-
+function test (console.log('test'));
+test();
 
 
 function playRound(playerSelection, computerSelection){
