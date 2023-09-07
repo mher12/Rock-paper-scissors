@@ -55,7 +55,7 @@ btns.forEach((button) => {
     });
 });
 
-function test (console.log('test'));
+function test (console.log('testing'));
 test();
 
 
